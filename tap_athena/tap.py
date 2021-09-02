@@ -13,13 +13,12 @@ class TapAthena(Tap):
 
     name = "tap-athena"
 
-    # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property("aws_access_key_id", th.StringType, required=True),
         th.Property("aws_secret_access_key", th.StringType, required=True),
+        th.Property("aws_region", th.StringType, required=True),
         th.Property("s3_staging_dir", th.StringType, required=True),
         th.Property("schema_name", th.StringType, required=True),
-        th.Property("aws_region", th.StringType, required=True),
     ).to_dict()
 
     @property

@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "tap-athena"
+version = "0.0.1"
+description = "`tap-athena` is a Singer tap for Athena, built with the Meltano SDK for Singer Taps."
+authors = ["AJ Steers"]
+license = "Apache 2.0"
+
+[tool.poetry.dependencies]
+python = "<3.9,>=3.6.1"
+requests = "^2.25.1"
+singer-sdk = {path = "../sdk", develop = true}
+pyathena = "^2.3.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.1.2"
+flake8 = "^3.9.2"
+mypy = "^0.910"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+# CLI declaration
+tap-athena = 'tap_athena.tap:TapAthena.cli'

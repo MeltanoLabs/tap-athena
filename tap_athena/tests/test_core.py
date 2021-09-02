@@ -1,14 +1,15 @@
 """Tests standard tap features using the built-in SDK tests library."""
 
 import datetime
+from typing import Any, Dict
 
 from singer_sdk.testing import get_standard_tap_tests
 
 from tap_athena.tap import TapAthena
 
-SAMPLE_CONFIG = {
-    "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-    # TODO: Initialize minimal tap config
+SAMPLE_CONFIG: Dict[str, Any] = {
+    # Tap config for tests are loaded from env vars (see `.env.template`)
+    # "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
 }
 
 

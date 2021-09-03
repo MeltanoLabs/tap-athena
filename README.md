@@ -7,7 +7,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 ## Installation
 
 ```bash
-pipx install git+https://github.com/dataops-tk/tap-athena.git
+pipx install git+https://github.com/MeltanoLabs/tap-athena.git
 ```
 
 ## Configuration

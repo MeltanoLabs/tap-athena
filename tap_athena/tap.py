@@ -9,7 +9,7 @@ from tap_athena.client import AthenaStream
 
 
 class TapAthena(Tap):
-    """Athena tap class."""
+    """A Singer tap for AWS Athena."""
 
     name = "tap-athena"
 

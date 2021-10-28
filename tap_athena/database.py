@@ -91,8 +91,7 @@ class SQLStream(Stream, metaclass=abc.ABCMeta):
     def fully_qualified_name(self):
         """Return the fully qualified name of the table name."""
         table_name = self.catalog_entry.table or self.catalog_entry.stream
-        md_map = singer.metadata.to_map(self.catalog_entry.metadata)
-        schema_name = md_map[()]["schema-name"]
+        schema_name = self.config.get("schema_name")
         db_name = self.catalog_entry.database
 
         return self.get_fully_qualified_name(
@@ -160,7 +159,7 @@ class SQLStream(Stream, metaclass=abc.ABCMeta):
         cls, tap_config: dict
     ) -> sqlalchemy.engine.Connection:
         """Return or set the SQLAlchemy connection object."""
-        cls.get_sqlalchemy_engine(tap_config).connect().execution_options(
+        return cls.get_sqlalchemy_engine(tap_config).connect().execution_options(
             stream_results=True
         )
 

@@ -24,7 +24,7 @@ class TapAthena(Tap):
     @property
     def catalog_dict(self) -> dict:
         if self.input_catalog:
-            return self.input_catalog
+            return self.input_catalog.to_dict()
 
         return AthenaStream.run_discovery(
             self.config,

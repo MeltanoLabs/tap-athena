@@ -26,7 +26,10 @@ class TapAthena(Tap):
         if self.input_catalog:
             return self.input_catalog
 
-        return AthenaStream.run_discovery(self.config)
+        return AthenaStream.run_discovery(
+            self.config,
+            schema_filter=[self.config["schema_name"]]
+        )
 
     def discover_streams(self) -> List[AthenaStream]:
         """Return a list of discovered streams."""
@@ -35,3 +38,7 @@ class TapAthena(Tap):
             result.append(AthenaStream(self, catalog_entry))
 
         return result
+
+
+if __name__ == "__main__":
+    TapAthena.cli()

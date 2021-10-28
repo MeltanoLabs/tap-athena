@@ -6,16 +6,16 @@ authors = ["AJ Steers"]
 license = "Apache 2.0"
 
 [tool.poetry.dependencies]
-python = "<3.10,>=3.6.1"
+python = "<3.10,>=3.6.2"
 requests = "^2.25.1"
 pyathena = "^2.3.0"
 
 # Uncomment just one of the following sdk declarations.
 # Note the prerelease SQLStream support is tracked here: https://gitlab.com/meltano/sdk/-/merge_requests/44
 
-singer-sdk = { git = "https://gitlab.com/meltano/sdk.git", branch = "74-database-type-streams" }
+# singer-sdk = { git = "https://gitlab.com/meltano/sdk.git", branch = "74-database-type-streams" }
 # singer-sdk = { path = "../sdk", develop = true }
-# singer-sdk = "^0.3.6"
+singer-sdk = "^0.3.12"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1.2"

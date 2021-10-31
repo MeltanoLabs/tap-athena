@@ -6,7 +6,7 @@ from singer_sdk import SQLConnector, SQLStream
 class AthenaConnector(SQLConnector):
     """Connects to the Athena SQL source."""
 
-    def create_sqlalchemy_url(cls, config: dict) -> str:
+    def get_sqlalchemy_url(cls, config: dict) -> str:
         return (
             f"awsathena+rest://{config['aws_access_key_id']}:"
             f"{config['aws_secret_access_key']}@athena"

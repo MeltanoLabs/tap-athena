@@ -1,30 +1,33 @@
-# tap-athena
+# `tap-athena`
 
-`tap-athena` is a Singer tap for Athena.
+A Singer tap for AWS Athena.
 
-Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
+Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Targets.
+
+## Capabilities
+
+* `sync`
+* `catalog`
+* `state`
+* `discover`
+
+## Settings
+
+| Setting              | Required | Default | Description |
+|:---------------------|:--------:|:-------:|:------------|
+| aws_access_key_id    | True     | None    |             |
+| aws_secret_access_key| True     | None    |             |
+| aws_region           | True     | None    |             |
+| s3_staging_dir       | True     | None    |             |
+| schema_name          | True     | None    |             |
+
+A full list of supported settings and capabilities is available by running: `tap-athena --about`
+
 
 ## Installation
 
 ```bash
 pipx install git+https://github.com/MeltanoLabs/tap-athena.git
-```
-
-## Configuration
-
-### Accepted Config Options
-
-- `aws_access_key_id`
-- `aws_secret_access_key`
-- `s3_staging_dir`
-- `schema_name`
-- `aws_region`
-
-A full list of supported settings and capabilities for this
-tap is available by running:
-
-```bash
-tap-athena --about
 ```
 
 ### Source Authentication and Authorization

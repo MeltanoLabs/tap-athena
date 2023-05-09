@@ -25,6 +25,7 @@ class AthenaConnector(SQLConnector):
             f"schema={config['schema_name']}"
         )
 
+
 class AthenaStream(SQLStream):
     """The Stream class for Athena."""
 

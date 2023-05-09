@@ -16,7 +16,14 @@ class AthenaConnector(SQLConnector):
     allow_merge_upsert = True
 
     def get_sqlalchemy_url(self, config: dict[str, t.Any]) -> str:
-        """Generates a SQLAlchemy URL for Athena."""
+        """Generates a SQLAlchemy URL for Athena.
+
+        Args:
+            config: Configuration dict for the connector.
+
+        Returns:
+            A SQLAlchemy URL for Athena.
+        """
         return (
             f"awsathena+rest://{config['aws_access_key_id']}:"
             f"{config['aws_secret_access_key']}@athena"

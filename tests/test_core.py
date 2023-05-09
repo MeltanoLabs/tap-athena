@@ -3,7 +3,6 @@
 import json
 
 from singer_sdk.testing import get_tap_test_class
-
 from tap_athena.tap import TapAthena
 
 SAMPLE_CONFIG = json.load(open(".secrets/config.json"))

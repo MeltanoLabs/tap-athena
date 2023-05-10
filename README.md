@@ -1,35 +1,41 @@
-# tap-athena
+# `tap-athena`
 
-`tap-athena` is a Singer tap for Athena.
+Athena tap class.
 
-Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
+Built with the [Meltano Singer SDK](https://sdk.meltano.com).
 
-## Installation
+## Capabilities
 
-```bash
-pipx install git+https://github.com/MeltanoLabs/tap-athena.git
-```
+* `catalog`
+* `state`
+* `discover`
+* `about`
+* `stream-maps`
+* `schema-flattening`
 
-## Configuration
+## Settings
 
-### Accepted Config Options
+| Setting              | Required | Default | Description |
+|:---------------------|:--------:|:-------:|:------------|
+| aws_access_key_id    | True     | None    |             |
+| aws_secret_access_key| True     | None    |             |
+| aws_region           | True     | None    |             |
+| s3_staging_dir       | True     | None    |             |
+| schema_name          | True     | None    |             |
+| stream_maps          | False    | None    | Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html). |
+| stream_map_config    | False    | None    | User-defined config values to be used within map expressions. |
+| flattening_enabled   | False    | None    | 'True' to enable schema flattening and automatically expand nested properties. |
+| flattening_max_depth | False    | None    | The max depth to flatten schemas. |
 
-- `aws_access_key_id`
-- `aws_secret_access_key`
-- `s3_staging_dir`
-- `schema_name`
-- `aws_region`
+A full list of supported settings and capabilities is available by running: `tap-athena --about`
 
-A full list of supported settings and capabilities for this
-tap is available by running:
+### Configure using environment variables
 
-```bash
-tap-athena --about
-```
+This Singer tap will automatically import any environment variables within the working directory's
+`.env` if the `--config=ENV` is provided, such that config values will be considered if a matching
+environment variable is set either in the terminal context or in the `.env` file.
 
 ### Source Authentication and Authorization
-
-Authentication is performed using AWS credentials, as provided from config settings descried above.
 
 ## Usage
 
@@ -45,11 +51,20 @@ tap-athena --config CONFIG --discover > ./catalog.json
 
 ## Developer Resources
 
+Follow these instructions to contribute to this project.
+
 ### Initialize your Development Environment
 
 ```bash
+# Install pipx if you haven't already
+pip install pipx
+pipx ensurepath
+
+# Restart your terminal here, if needed, to get the updated PATH
 pipx install poetry
-poetry install
+
+# Optional: Install Tox if you want to use it to run auto-formatters, linters, tests, etc.
+pipx install tox
 ```
 
 ### Create and Run Tests
@@ -84,10 +99,12 @@ select * from "test_data";
 
 Add your config.json to the `.secrets` directory:
 
-Run tests within the `tests` subfolder:
+Create tests within the `tests` subfolder and
+  then run:
 
 ```bash
-poetry run pytest
+pipx run tox -e pytest
+pipx run tox -e pytest -- tests/test_core.py
 ```
 
 You can also test the `tap-athena` CLI interface directly using `poetry run`:
@@ -119,8 +136,8 @@ Now you can test and orchestrate using Meltano:
 ```bash
 # Test invocation:
 meltano invoke tap-athena --version
-# OR run a test `elt` pipeline:
-meltano elt tap-athena target-jsonl
+# OR run a test `run` pipeline:
+meltano run tap-athena target-jsonl
 ```
 
 ### SDK Dev Guide

@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "tap-athena"
-version = "0.0.1"
+version = "1.0.0"
 description = "`tap-athena` is a Singer tap for Athena, built with the Meltano Singer SDK."
 readme = "README.md"
-authors = ["AJ Steers"]
+authors = ["AJ Steers", "Pat Nadolny"]
 keywords = [
     "ELT",
     "Athena",

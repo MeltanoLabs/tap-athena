@@ -14,11 +14,36 @@ class TapAthena(SQLTap):
     default_stream_class = AthenaStream
 
     config_jsonschema = th.PropertiesList(
-        th.Property("aws_access_key_id", th.StringType, required=True),
-        th.Property("aws_secret_access_key", th.StringType, required=True),
-        th.Property("aws_region", th.StringType, required=True),
-        th.Property("s3_staging_dir", th.StringType, required=True),
-        th.Property("schema_name", th.StringType, required=True),
+        th.Property(
+            "aws_access_key_id",
+            th.StringType,
+            required=True,
+            description="AWS access key ID",
+        ),
+        th.Property(
+            "aws_secret_access_key",
+            th.StringType,
+            required=True,
+            description="AWS secret access key",
+        ),
+        th.Property(
+            "aws_region",
+            th.StringType,
+            required=True,
+            description="AWS region",
+        ),
+        th.Property(
+            "s3_staging_dir",
+            th.StringType,
+            required=True,
+            description="S3 staging directory. This is where Athena will write output files.",
+        ),
+        th.Property(
+            "schema_name",
+            th.StringType,
+            required=True,
+            description="Athena schema name",
+        ),
     ).to_dict()
 
 

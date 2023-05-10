@@ -36,10 +36,7 @@ class TapAthena(SQLTap):
             "s3_staging_dir",
             th.StringType,
             required=True,
-            description=(
-                "S3 staging directory. This is where Athena will write output "
-                "files."
-            ),
+            description="The S3 staging directory where output is written.",
         ),
         th.Property(
             "schema_name",

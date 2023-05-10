@@ -1,5 +1,7 @@
 """Custom client handling, including AthenaStream base class."""
 
+from __future__ import annotations
+
 import typing as t
 
 from singer_sdk import SQLConnector, SQLStream

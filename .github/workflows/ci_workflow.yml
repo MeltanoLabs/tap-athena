@@ -44,7 +44,12 @@ jobs:
     - name: Install dependencies
       run: |
         poetry install
-    - run: echo "${{secrets.CONFIG_JSON }}" > .secrets/config.json
+    - name: create-json
+      id: create-json
+      uses: jsdaniell/create-json@1.1.2
+      with:
+        name: ".secrets/config.json"
+        json: ${{ secrets.CONFIG_JSON }}
     - name: Test with pytest
       run: |
         poetry run pytest

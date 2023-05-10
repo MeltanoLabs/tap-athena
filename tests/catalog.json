@@ -1,0 +1,134 @@
+{
+  "streams": [
+    {
+      "tap_stream_id": "my_sample_data-test",
+      "table_name": "test",
+      "replication_method": "",
+      "schema": {
+        "properties": {
+          "complex-1": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "complex_2": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "complex3": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "complex_4_date": {
+            "format": "date",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "complex_5_bool": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "complex_6_float": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "complex_7_timestamp": {
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "is_view": false,
+      "stream": "my_sample_data-test",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "complex-1"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "complex_2"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "complex3"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "complex_4_date"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "complex_5_bool"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "complex_6_float"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "complex_7_timestamp"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "inclusion": "available",
+            "forced-replication-method": "",
+            "schema-name": "my_sample_data",
+            "selected": true
+          }
+        }
+      ]
+    }
+  ]
+}

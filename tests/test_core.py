@@ -7,4 +7,8 @@ from tap_athena.tap import TapAthena
 
 SAMPLE_CONFIG = json.load(open(".secrets/config.json"))
 
-TestTapDynamoDB = get_tap_test_class(tap_class=TapAthena, config=SAMPLE_CONFIG)
+TestTapAthena = get_tap_test_class(
+    tap_class=TapAthena,
+    config=SAMPLE_CONFIG,
+    catalog="tests/catalog.json",
+)

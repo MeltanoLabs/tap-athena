@@ -27,7 +27,7 @@ black = "^23.1.0"
 pyupgrade = "^3.3.1"
 mypy = "^1.0.0"
 isort = "^5.11.5"
-moto = "^4.1.6"
+moto = "^4.2.0"
 coverage = "^7.2.3"
 pydocstyle = "^6.3.0"
 sqlalchemy = {version="~=1.4", extras=["mypy"]}

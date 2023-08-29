@@ -46,7 +46,7 @@ jobs:
         poetry install
     - name: create-json
       id: create-json
-      uses: jsdaniell/create-json@1.1.2
+      uses: jsdaniell/create-json@v1.2.2
       with:
         name: ".secrets/config.json"
         json: ${{ secrets.CONFIG_JSON }}

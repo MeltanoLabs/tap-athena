@@ -4,7 +4,11 @@ from __future__ import annotations
 
 import typing as t
 
+import sqlalchemy
 from singer_sdk import SQLConnector, SQLStream
+
+if t.TYPE_CHECKING:
+    from sqlalchemy.engine import Engine
 
 
 class AthenaConnector(SQLConnector):
@@ -32,6 +36,17 @@ class AthenaConnector(SQLConnector):
             f".{config['aws_region']}.amazonaws.com:443/?"
             f"s3_staging_dir={config['s3_staging_dir']}"
             f"schema={config['schema_name']}"
+        )
+
+    def create_engine(self) -> Engine:
+        """Create a SQLAlchemy engine."""
+        return sqlalchemy.create_engine(
+            self.sqlalchemy_url,
+            echo=False,
+            # TODO: Enable JSON serialization/deserialization.
+            # https://github.com/MeltanoLabs/tap-athena/issues/35
+            # json_serializer=self.serialize_json,
+            # json_deserializer=self.deserialize_json,
         )
 
 

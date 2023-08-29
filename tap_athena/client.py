@@ -39,7 +39,11 @@ class AthenaConnector(SQLConnector):
         )
 
     def create_engine(self) -> Engine:
-        """Create a SQLAlchemy engine."""
+        """Create a SQLAlchemy engine.
+
+        Returns:
+            A SQLAlchemy engine.
+        """
         return sqlalchemy.create_engine(
             self.sqlalchemy_url,
             echo=False,

@@ -16,7 +16,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "<3.12,>=3.7.1"
 requests = "^2.25.1"
-pyathena = "^2.3.0"
+pyathena = ">=2,<3"
 singer-sdk = "^0.31.0"
 
 [tool.poetry.group.dev.dependencies]

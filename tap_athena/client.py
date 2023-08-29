@@ -22,7 +22,7 @@ class AthenaConnector(SQLConnector):
     allow_merge_upsert = True
 
     def get_sqlalchemy_url(self, config: dict[str, t.Any]) -> str:
-        """Generates a SQLAlchemy URL for Athena.
+        """Generate a SQLAlchemy URL for Athena.
 
         Args:
             config: Configuration dict for the connector.
@@ -49,8 +49,8 @@ class AthenaConnector(SQLConnector):
             echo=False,
             # TODO: Enable JSON serialization/deserialization.
             # https://github.com/MeltanoLabs/tap-athena/issues/35
-            # json_serializer=self.serialize_json,
-            # json_deserializer=self.deserialize_json,
+            # json_serializer=self.serialize_json,  # noqa: ERA001
+            # json_deserializer=self.deserialize_json,  # noqa: ERA001
         )
 
 

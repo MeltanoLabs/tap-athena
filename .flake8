@@ -1,0 +1,4 @@
+[flake8]
+select = DAR
+docstring-convention = google
+max-line-length = 88

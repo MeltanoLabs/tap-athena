@@ -47,11 +47,8 @@ repos:
   hooks:
   - id: mypy
     additional_dependencies:
-    - types-docutils
-    - types-requests
-    - types-tabulate
     - typing-extensions
-    language_version: python3.11
+    - sqlalchemy[mypy]
 
 - repo: https://github.com/pycqa/flake8
   rev: 6.1.0

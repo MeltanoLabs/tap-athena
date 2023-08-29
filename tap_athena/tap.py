@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from singer_sdk import SQLTap
 from singer_sdk import typing as th  # JSON schema typing helpers
+
 from tap_athena.client import AthenaStream
 
 

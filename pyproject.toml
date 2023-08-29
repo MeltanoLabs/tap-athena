@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "tap-athena"
-version = "0.0.1"
+version = "1.0.0"
 description = "`tap-athena` is a Singer tap for Athena, built with the Meltano Singer SDK."
 readme = "README.md"
-authors = ["AJ Steers"]
+authors = ["AJ Steers", "Pat Nadolny"]
 keywords = [
     "ELT",
     "Athena",
@@ -16,8 +16,8 @@ packages = [
 [tool.poetry.dependencies]
 python = "<3.12,>=3.7.1"
 requests = "^2.25.1"
-pyathena = "^2.3.0"
-singer-sdk = "^0.26.0"
+pyathena = ">=2,<3"
+singer-sdk = "^0.31.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
@@ -30,6 +30,7 @@ isort = "^5.11.5"
 moto = "^4.1.6"
 coverage = "^7.2.3"
 pydocstyle = "^6.3.0"
+sqlalchemy = {version="~=1.4", extras=["mypy"]}
 
 [tool.poetry.extras]
 s3 = ["fs-s3fs"]
@@ -40,6 +41,7 @@ multi_line_output = 3 # Vertical Hanging Indent
 src_paths = "tap_dynamodb"
 
 [tool.mypy]
+plugins = ["sqlalchemy.ext.mypy.plugin"]
 python_version = "3.9"
 warn_unused_configs = true
 

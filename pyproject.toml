@@ -30,6 +30,7 @@ isort = "^5.11.5"
 moto = "^4.1.6"
 coverage = "^7.2.3"
 pydocstyle = "^6.3.0"
+sqlalchemy = {version="~=1.4", extras=["mypy"]}
 
 [tool.poetry.extras]
 s3 = ["fs-s3fs"]
@@ -40,6 +41,7 @@ multi_line_output = 3 # Vertical Hanging Indent
 src_paths = "tap_dynamodb"
 
 [tool.mypy]
+plugins = ["sqlalchemy.ext.mypy.plugin"]
 python_version = "3.9"
 warn_unused_configs = true
 

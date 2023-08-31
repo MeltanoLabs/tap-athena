@@ -79,8 +79,9 @@ class AthenaStream(SQLStream):
                 not support partitioning.
         """
         if context:
+            msg = f"Stream '{self.name}' does not support partitioning."
             raise NotImplementedError(
-                f"Stream '{self.name}' does not support partitioning.",
+                msg,
             )
 
         selected_column_names = self.get_selected_schema()["properties"].keys()
@@ -92,7 +93,8 @@ class AthenaStream(SQLStream):
 
         if self.config["paginate"] or self.replication_key:
             if self.config["paginate"] and not self.replication_key:
-                raise Exception("Replication key is required when paginate is set.")
+                msg = "Replication key is required when paginate is set."
+                raise Exception(msg)
             replication_key_col = table.columns[self.replication_key]
             query = query.order_by(replication_key_col)
 
@@ -112,7 +114,6 @@ class AthenaStream(SQLStream):
             # processed.
             query = query.limit(self.ABORT_AT_RECORD_COUNT + 1)
 
-
         if self.config["paginate"]:
             batch_start = 0
             batch_size = self.config["paginate_batch_size"]
@@ -120,7 +121,7 @@ class AthenaStream(SQLStream):
             with self.connector._connect() as conn:
                 record_count = 0
                 while True:
-                    full_query  = query.limit(batch_end).offset(batch_start)
+                    full_query = query.limit(batch_end).offset(batch_start)
                     for record in conn.execute(full_query):
                         yield dict(record._mapping)
                         record_count += 1

@@ -50,14 +50,14 @@ class TapAthena(SQLTap):
             th.BooleanType,
             required=False,
             description="Whether to use limit/offset pagination when querying Athena. This is useful for large tables where the initial query runs for a long time.",
-            default=False
+            default=False,
         ),
         th.Property(
             "paginate_batch_size",
             th.IntegerType,
             required=False,
             description="The size of the batches if using pagination. The larger the batches the longer the tap will wait for Athena to return records.",
-            default=10000
+            default=10000,
         ),
     ).to_dict()
 

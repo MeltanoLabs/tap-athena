@@ -10,8 +10,8 @@ license = "Apache-2.0"
 packages = [{ include = "tap_athena" }]
 
 [tool.poetry.dependencies]
-python = "<3.12,>=3.7.1"
-pyathena = ">=2,<3"
+python = "<3.12,>=3.8.1"
+pyathena = ">=3,<4"
 singer-sdk = "^0.31.0"
 
 [tool.poetry.group.dev.dependencies]

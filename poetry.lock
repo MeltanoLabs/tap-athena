@@ -1580,4 +1580,4 @@ s3 = []
 [metadata]
 lock-version = "2.0"
 python-versions = "<3.12,>=3.8.1"
-content-hash = "108b143d92ac1f5a9887d953f40866dc02bf02e5895b2fedc9f202a50b144c97"
+content-hash = "f75bdef65881648330e18004dd1bef31dc445ef905801715c3319179587f00a1"

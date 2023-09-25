@@ -16,7 +16,7 @@ singer-sdk = "^0.31.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
-moto = "^4.2.3"
+moto = "^4.2.4"
 coverage = "^7.3.1"
 
 [tool.poetry.extras]

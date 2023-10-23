@@ -12,7 +12,7 @@ packages = [{ include = "tap_athena" }]
 [tool.poetry.dependencies]
 python = "<3.12,>=3.8.1"
 pyathena = ">=3,<4"
-singer-sdk = "^0.32.0"
+singer-sdk = "^0.33.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"

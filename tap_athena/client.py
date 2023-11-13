@@ -38,21 +38,6 @@ class AthenaConnector(SQLConnector):
             f"schema={config['schema_name']}"
         )
 
-    def create_engine(self) -> Engine:
-        """Create a SQLAlchemy engine.
-
-        Returns:
-            A SQLAlchemy engine.
-        """
-        return sqlalchemy.create_engine(
-            self.sqlalchemy_url,
-            echo=False,
-            # TODO: Enable JSON serialization/deserialization.
-            # https://github.com/MeltanoLabs/tap-athena/issues/35
-            # json_serializer=self.serialize_json,  # noqa: ERA001
-            # json_deserializer=self.deserialize_json,  # noqa: ERA001
-        )
-
 
 class AthenaStream(SQLStream):
     """The Stream class for Athena."""

@@ -16,6 +16,7 @@ updates:
       - "pnadolny13"
     labels:
       - "dependencies"
+    versioning-strategy: increase-if-necessary
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

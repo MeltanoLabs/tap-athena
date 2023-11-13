@@ -4,11 +4,7 @@ from __future__ import annotations
 
 import typing as t
 
-import sqlalchemy
 from singer_sdk import SQLConnector, SQLStream
-
-if t.TYPE_CHECKING:
-    from sqlalchemy.engine import Engine
 
 
 class AthenaConnector(SQLConnector):

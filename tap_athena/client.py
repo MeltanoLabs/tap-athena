@@ -39,3 +39,4 @@ class AthenaStream(SQLStream):
     """The Stream class for Athena."""
 
     connector_class = AthenaConnector
+    supports_nulls_first = True

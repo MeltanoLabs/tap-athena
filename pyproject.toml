@@ -28,6 +28,10 @@ python_version = "3.9"
 warn_unused_configs = true
 
 [tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
 select = [
   "F",
   "W",
@@ -86,28 +90,26 @@ ignore = [
 unfixable = [
   "ERA", # commented-out-code
 ]
-line-length = 88
-target-version = "py37"
 
-[tool.ruff.flake8-import-conventions]
+[tool.ruff.lint.flake8-import-conventions]
 banned-from = ["typing"]
 
-[tool.ruff.flake8-import-conventions.extend-aliases]
+[tool.ruff.lint.flake8-import-conventions.extend-aliases]
 "typing" = "t"
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 required-imports = ["from __future__ import annotations"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101"]
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "google"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = [
-  "poetry-core==1.6.*",
+  "poetry-core==1.9",
 ]
 
 [tool.poetry.scripts]

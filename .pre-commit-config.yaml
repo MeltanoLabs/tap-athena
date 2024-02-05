@@ -5,6 +5,8 @@ ci:
   autofix_prs: true
   autoupdate_schedule: monthly
   autoupdate_commit_msg: 'chore(deps): pre-commit autoupdate'
+  skip:
+  - check-dependabot
 
 default_language_version:
   python: python3.11

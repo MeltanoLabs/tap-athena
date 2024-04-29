@@ -1030,13 +1030,13 @@ files = [
 
 [[package]]
 name = "pyathena"
-version = "3.6.0"
+version = "3.7.0"
 description = "Python DB API 2.0 (PEP 249) client for Amazon Athena"
 optional = false
 python-versions = ">=3.8.1"
 files = [
-    {file = "pyathena-3.6.0-py3-none-any.whl", hash = "sha256:8beaa4a4e4a4ff8ee5a6be21ace028c62ecb4f6a29328d9c03eb02c15c4531a3"},
-    {file = "pyathena-3.6.0.tar.gz", hash = "sha256:da37fb9b0fdc4d2e715b718b65893ad2e50b508225934d689f8f78d8ec36af06"},
+    {file = "pyathena-3.7.0-py3-none-any.whl", hash = "sha256:b971e88fbdf67448b90edc5d21e50a480eb9621b4b878d5223f8b6b9516338f9"},
+    {file = "pyathena-3.7.0.tar.gz", hash = "sha256:3ea22b5cbb1d8b88c013b2b959416e4dd44fb36f462d479f350954ea1ceb2d62"},
 ]
 
 [package.dependencies]

@@ -1,13 +1,29 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = [
+  "poetry-core==1.9",
+]
+
 [tool.poetry]
 name = "tap-athena"
 version = "1.1.0"
 description = "`tap-athena` is a Singer tap for Athena, built with the Meltano Singer SDK."
 readme = "README.md"
-authors = ["AJ Steers <aaronsteers@gmail.com>", "Pat Nadolny <pat@meltano.com>"]
-maintainers = ["Metano Team and Contributors <hello@meltano.com>"]
-keywords = ["ELT", "Athena"]
+authors = [
+  "AJ Steers <aaronsteers@gmail.com>",
+  "Pat Nadolny <pat@meltano.com>",
+]
+maintainers = [
+  "Metano Team and Contributors <hello@meltano.com>",
+]
+keywords = [
+  "ELT",
+  "Athena",
+]
 license = "Apache-2.0"
-packages = [{ include = "tap_athena" }]
+packages = [
+  { include = "tap_athena" },
+]
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4"
@@ -20,98 +36,91 @@ moto = "^5.0.0"
 coverage = "^7.3.2"
 
 [tool.poetry.extras]
-s3 = ["fs-s3fs"]
-
-[tool.mypy]
-plugins = ["sqlalchemy.ext.mypy.plugin"]
-python_version = "3.9"
-warn_unused_configs = true
-
-[tool.ruff]
-line-length = 88
-target-version = "py38"
-
-[tool.ruff.lint]
-select = [
-  "F",
-  "W",
-  "E",
-  "C90",
-  "I",
-  "N",
-  "D",
-  "UP",
-  "YTT",
-  "ANN",
-  # "ASYNC",
-  "S",
-  "BLE",
-  "FBT",
-  "B",
-  "A",
-  "COM",
-  # "CPY",
-  "C4",
-  "DTZ",
-  "T10",
-  "EM",
-  "FA",
-  "ISC",
-  "ICN",
-  "G",
-  "INP",
-  "PIE",
-  "T20",
-  "PT",
-  "Q",
-  "RSE",
-  "RET",
-  "SLF",
-  "SIM",
-  "TID",
-  "TCH",
-  "ARG",
-  "PTH",
-  "TD",
-  "FIX",
-  "ERA",
-  "PGH",
-  "PL",
-  "TRY",
-  "FLY",
-  "PERF",
-  "RUF",
-]
-ignore = [
-  "ANN101", # missing-type-self
-  "TD002",  # missing-todo-author
-  "FIX002", # line-contains-todo
-]
-unfixable = [
-  "ERA", # commented-out-code
-]
-
-[tool.ruff.lint.flake8-import-conventions]
-banned-from = ["typing"]
-
-[tool.ruff.lint.flake8-import-conventions.extend-aliases]
-"typing" = "t"
-
-[tool.ruff.lint.isort]
-required-imports = ["from __future__ import annotations"]
-
-[tool.ruff.lint.per-file-ignores]
-"tests/*" = ["S101"]
-
-[tool.ruff.lint.pydocstyle]
-convention = "google"
-
-[build-system]
-build-backend = "poetry.core.masonry.api"
-requires = [
-  "poetry-core==1.9",
+s3 = [
+  "fs-s3fs",
 ]
 
 [tool.poetry.scripts]
 # CLI declaration
 tap-athena = 'tap_athena.tap:TapAthena.cli'
+
+[tool.ruff]
+target-version = "py38"
+
+line-length = 88
+lint.select = [
+  "A",
+  "ANN",
+  "ARG",
+  "B",
+  "BLE",
+  # "CPY",
+  "C4",
+  "C90",
+  "COM",
+  "D",
+  "DTZ",
+  "E",
+  "EM",
+  "ERA",
+  "F",
+  "FA",
+  "FBT",
+  "FIX",
+  "FLY",
+  "G",
+  "I",
+  "ICN",
+  "INP",
+  "ISC",
+  "N",
+  "PERF",
+  "PGH",
+  "PIE",
+  "PL",
+  "PT",
+  "PTH",
+  "Q",
+  "RET",
+  "RSE",
+  "RUF",
+  # "ASYNC",
+  "S",
+  "SIM",
+  "SLF",
+  "T10",
+  "T20",
+  "TCH",
+  "TD",
+  "TID",
+  "TRY",
+  "UP",
+  "W",
+  "YTT",
+]
+lint.ignore = [
+  "ANN101", # missing-type-self
+  "FIX002", # line-contains-todo
+  "TD002",  # missing-todo-author
+]
+lint.per-file-ignores."tests/*" = [
+  "S101",
+]
+lint.unfixable = [
+  "ERA", # commented-out-code
+]
+lint.flake8-import-conventions.banned-from = [
+  "typing",
+]
+lint.flake8-import-conventions.extend-aliases."typing" = "t"
+lint.isort.required-imports = [
+  "from __future__ import annotations",
+]
+lint.pydocstyle.convention = "google"
+
+[tool.mypy]
+plugins = [
+  "sqlalchemy.ext.mypy.plugin",
+]
+python_version = "3.9"
+warn_unused_configs = true

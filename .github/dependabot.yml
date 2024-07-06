@@ -17,6 +17,16 @@ updates:
     labels:
       - "dependencies"
     versioning-strategy: increase-if-necessary
+    commit-message:
+      prefix: "feat(deps): "
+      prefix-development: "chore(deps-dev): "
+    groups:
+      development-dependencies:
+        dependency-type: development
+      runtime-dependencies:
+        dependency-type: production
+        update-types:
+          - "patch"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -28,3 +38,9 @@ updates:
       - "pnadolny13"
     labels:
       - "dependencies"
+    commit-message:
+      prefix: "ci: "
+    groups:
+      actions:
+        patterns:
+          - "*"

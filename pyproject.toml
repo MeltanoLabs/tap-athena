@@ -124,3 +124,8 @@ plugins = [
 ]
 python_version = "3.9"
 warn_unused_configs = true
+
+[tool.pytest.ini_options]
+filterwarnings = [
+  "error",
+]

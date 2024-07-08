@@ -122,6 +122,7 @@ lint.pydocstyle.convention = "google"
 filterwarnings = [
   "error",
   "ignore::sqlalchemy.exc.SADeprecationWarning",
+  "ignore:datetime.datetime.utcnow:DeprecationWarning:botocore.auth",  # https://github.com/boto/boto3/issues/3889
 ]
 
 [tool.mypy]

@@ -118,14 +118,14 @@ lint.isort.required-imports = [
 ]
 lint.pydocstyle.convention = "google"
 
+[tool.pytest.ini_options]
+filterwarnings = [
+  "error",
+]
+
 [tool.mypy]
 plugins = [
   "sqlalchemy.ext.mypy.plugin",
 ]
 python_version = "3.9"
 warn_unused_configs = true
-
-[tool.pytest.ini_options]
-filterwarnings = [
-  "error",
-]

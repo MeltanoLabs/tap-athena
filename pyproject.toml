@@ -121,6 +121,7 @@ lint.pydocstyle.convention = "google"
 [tool.pytest.ini_options]
 filterwarnings = [
   "error",
+  "ignore::sqlalchemy.exc.SADeprecationWarning",
 ]
 
 [tool.mypy]

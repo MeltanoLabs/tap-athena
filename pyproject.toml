@@ -31,9 +31,9 @@ pyathena = ">=3,<4"
 singer-sdk = "~=0.41.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.0.0"
-moto = "^5.0.0"
-coverage = "^7.3.2"
+pytest = ">=8.0.0"
+moto = ">=5.0.0"
+coverage = ">=7.3.2"
 
 [tool.poetry.extras]
 s3 = [

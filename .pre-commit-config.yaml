@@ -13,7 +13,7 @@ default_language_version:
 
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.6.0
+  rev: v5.0.0
   hooks:
   - id: trailing-whitespace
   - id: end-of-file-fixer
@@ -21,7 +21,7 @@ repos:
   - id: check-added-large-files
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.29.2
+  rev: 0.29.3
   hooks:
   - id: check-dependabot
   - id: check-github-workflows
@@ -29,14 +29,14 @@ repos:
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
   # Ruff version.
-  rev: v0.6.3
+  rev: v0.6.9
   hooks:
   - id: ruff
     args: [--fix, --exit-non-zero-on-fix]
   - id: ruff-format
 
 - repo: https://github.com/tox-dev/pyproject-fmt
-  rev: "2.2.1"
+  rev: "2.2.4"
   hooks:
   - id: pyproject-fmt
 

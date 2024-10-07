@@ -489,13 +489,13 @@ scandir = ["scandir (>=1.5,<2.0)"]
 
 [[package]]
 name = "fsspec"
-version = "2024.6.1"
+version = "2024.9.0"
 description = "File-system specification"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "fsspec-2024.6.1-py3-none-any.whl", hash = "sha256:3cb443f8bcd2efb31295a5b9fdb02aee81d8452c80d28f97a6d0959e6cee101e"},
-    {file = "fsspec-2024.6.1.tar.gz", hash = "sha256:fad7d7e209dd4c1208e3bbfda706620e0da5142bebbd9c384afb95b07e798e49"},
+    {file = "fsspec-2024.9.0-py3-none-any.whl", hash = "sha256:a0947d552d8a6efa72cc2c730b12c41d043509156966cca4fb157b0f2a0c574b"},
+    {file = "fsspec-2024.9.0.tar.gz", hash = "sha256:4b0afb90c2f21832df142f292649035d80b421f60a9e1c027802e5a0da2b04e8"},
 ]
 
 [package.extras]
@@ -1380,13 +1380,13 @@ files = [
 
 [[package]]
 name = "singer-sdk"
-version = "0.40.0"
+version = "0.41.0"
 description = "A framework for building Singer taps"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "singer_sdk-0.40.0-py3-none-any.whl", hash = "sha256:eb54a1de031a8888adb5ba2d1236161e95b4f87522444c943229a122f4d6b1ee"},
-    {file = "singer_sdk-0.40.0.tar.gz", hash = "sha256:f9360cbfac187cf4f14338b181313cab5726c8d1314c5719f2e8212c375ca3cf"},
+    {file = "singer_sdk-0.41.0-py3-none-any.whl", hash = "sha256:9570377d043239c04d38d4193e0c6e164949d07382234c5895e5ea1ba273e260"},
+    {file = "singer_sdk-0.41.0.tar.gz", hash = "sha256:be3a4b0ae034eda445e7dd9378999f9d19d8135fd14c9135e3bc5deaf5dbd3ad"},
 ]
 
 [package.dependencies]
@@ -1394,6 +1394,7 @@ backoff = {version = ">=2.0.0", markers = "python_version < \"4\""}
 backports-datetime-fromisoformat = {version = ">=2.0.1", markers = "python_version < \"3.11\""}
 click = ">=8.0,<9.0"
 fs = ">=2.4.16"
+fsspec = ">=2024.9.0"
 importlib-metadata = {version = "<9.0.0", markers = "python_version < \"3.12\""}
 importlib-resources = {version = ">=5.12.0,<6.2.0 || >6.2.0,<6.3.0 || >6.3.0,<6.3.1 || >6.3.1", markers = "python_version < \"3.10\""}
 inflection = ">=0.5.1"
@@ -1405,6 +1406,7 @@ python-dotenv = ">=0.20"
 PyYAML = ">=6.0"
 referencing = ">=0.30.0"
 requests = ">=2.25.1"
+setuptools = "<=70.3.0"
 simpleeval = ">=0.9.13"
 simplejson = ">=3.17.6"
 sqlalchemy = ">=1.4,<3.0"
@@ -1416,7 +1418,8 @@ docs = ["furo (>=2024.5.6)", "myst-parser (>=3)", "pytest (>=7.2.1)", "sphinx (>
 faker = ["faker (>=22.5)"]
 jwt = ["PyJWT (>=2.4,<3.0)", "cryptography (>=3.4.6)"]
 parquet = ["numpy (>=1.22)", "numpy (>=1.22,<1.25)", "numpy (>=1.22,<2.1)", "pyarrow (>=13)"]
-s3 = ["fs-s3fs (>=1.1.1)"]
+s3 = ["fs-s3fs (>=1.1.1)", "s3fs (>=2024.9.0)"]
+ssh = ["paramiko (>=3.3.0)"]
 testing = ["pytest (>=7.2.1)"]
 
 [[package]]
@@ -1619,4 +1622,4 @@ s3 = []
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8.1,<4"
-content-hash = "f6c2c5e1f77e3ed2e477b4ba180769353aba1b6a55a194611eaa487190893164"
+content-hash = "259cf7d23d6355d988d00a2b44ab275148644f39cdc2d9c627361e20ca532dae"

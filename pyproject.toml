@@ -1,7 +1,7 @@
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = [
-  "poetry-core==1.9",
+  "poetry-core>=1.9,<2",
 ]
 
 [tool.poetry]
@@ -26,7 +26,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8.1,<4"
+python = ">=3.9"
 pyathena = ">=3,<4"
 singer-sdk = "~=0.41.0"
 
@@ -45,7 +45,7 @@ s3 = [
 tap-athena = 'tap_athena.tap:TapAthena.cli'
 
 [tool.ruff]
-target-version = "py38"
+target-version = "py39"
 
 line-length = 88
 lint.select = [

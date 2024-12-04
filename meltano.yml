@@ -5,9 +5,7 @@ plugins:
   extractors:
   - name: tap-athena
     namespace: tap_athena
-    # TODO: To test using Meltano, replace with absolute path
-    #       to the tap-athena.sh script:
-    executable: ./tap-athena.sh
+    executable: -e .
     capabilities:
     - state
     - catalog
@@ -16,9 +14,11 @@ plugins:
     #   start_date: '2010-01-01T00:00:00Z'
     settings:
     - name: aws_access_key_id
-      kind: password
+      kind: string
+      sensitive: true
     - name: aws_secret_access_key
-      kind: password
+      kind: string
+      sensitive: true
     - name: aws_region
       kind: string
     - name: s3_staging_dir

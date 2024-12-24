@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import typing as t
 
 from singer_sdk import SQLConnector, SQLStream
@@ -26,16 +27,32 @@ class AthenaConnector(SQLConnector):
         Returns:
             A SQLAlchemy URL for Athena.
         """
-        url = (
-            f"awsathena+rest://{config['aws_access_key_id']}:"
-            f"{config['aws_secret_access_key']}@athena"
-            f".{config['aws_region']}.amazonaws.com:443/"
-            f"?s3_staging_dir={config['s3_staging_dir']}"
-            f"&schema={config['schema_name']}"
-            f"&work_group={config['athena_workgroup']}"
+        # Get the required parameters from config file and/or environment variables
+        aws_access_key_id = config.get("aws_access_key_id") or os.environ.get(
+            "AWS_ACCESS_KEY_ID"
         )
-        if "aws_session_token" in config:
-            url += f"&aws_session_token={config['aws_session_token']}"
+        aws_secret_access_key = config.get("aws_secret_access_key") or os.environ.get(
+            "AWS_SECRET_ACCESS_KEY"
+        )
+        aws_session_token = config.get("aws_session_token") or os.environ.get(
+            "AWS_SESSION_TOKEN"
+        )
+        aws_region = config.get("aws_region") or os.environ.get("AWS_REGION")
+        s3_staging_dir = config.get("s3_staging_dir") or os.environ.get("S3_STAGING_DIR")
+        athena_workgroup = config.get("athena_workgroup") or os.environ.get(
+            "ATHENA_WORKGROUP"
+        )
+
+        url = (
+            f"awsathena+rest://{aws_access_key_id}:"
+            f"{aws_secret_access_key}@athena"
+            f".{aws_region}.amazonaws.com:443/"
+            f"?s3_staging_dir={s3_staging_dir}"
+            f"&schema={config['schema_name']}"
+            f"&work_group={athena_workgroup}"
+        )
+        if aws_session_token:
+            url += f"&aws_session_token={aws_session_token}"
         return url
 
 

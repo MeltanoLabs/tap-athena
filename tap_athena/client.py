@@ -6,6 +6,7 @@ import os
 import typing as t
 
 from singer_sdk import SQLConnector, SQLStream
+from sqlalchemy.engine.url import URL
 
 
 class AthenaConnector(SQLConnector):
@@ -43,16 +44,22 @@ class AthenaConnector(SQLConnector):
             "ATHENA_WORKGROUP"
         )
 
-        url = (
-            f"awsathena+rest://{aws_access_key_id}:"
-            f"{aws_secret_access_key}@athena"
-            f".{aws_region}.amazonaws.com:443/{config['schema_name']}"
-            f"?s3_staging_dir={s3_staging_dir}"
-            f"&work_group={athena_workgroup}"
-        )
+        query = {
+            "s3_staging_dir": s3_staging_dir,
+            "aws_access_key_id": aws_access_key_id,
+            "aws_secret_access_key": aws_secret_access_key,
+            "region_name": aws_region,
+            "work_group": athena_workgroup,
+        }
         if aws_session_token:
-            url += f"&aws_session_token={aws_session_token}"
-        return url
+            query["aws_session_token"] = aws_session_token
+        url = URL.create(
+            drivername="awsathena+rest",
+            host=f"athena.{aws_region}.amazonaws.com",
+            database=config['schema_name'],
+            query=query
+        )
+        return str(url)
 
 
 class AthenaStream(SQLStream):

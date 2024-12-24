@@ -52,6 +52,8 @@ class TapAthena(SQLTap):
             title="Schema Name",
             description="Athena schema name",
         ),
+        th.Property("aws_session_token", th.StringType),
+        th.Property("athena_workgroup", th.StringType, default="primary"),
     ).to_dict()
 
 

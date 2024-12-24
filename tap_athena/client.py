@@ -26,13 +26,17 @@ class AthenaConnector(SQLConnector):
         Returns:
             A SQLAlchemy URL for Athena.
         """
-        return (
+        url = (
             f"awsathena+rest://{config['aws_access_key_id']}:"
             f"{config['aws_secret_access_key']}@athena"
-            f".{config['aws_region']}.amazonaws.com:443/?"
-            f"s3_staging_dir={config['s3_staging_dir']}"
-            f"schema={config['schema_name']}"
+            f".{config['aws_region']}.amazonaws.com:443/"
+            f"?s3_staging_dir={config['s3_staging_dir']}"
+            f"&schema={config['schema_name']}"
+            f"&work_group={config['athena_workgroup']}"
         )
+        if "aws_session_token" in config:
+            url += f"&aws_session_token={config['aws_session_token']}"
+        return url
 
 
 class AthenaStream(SQLStream):

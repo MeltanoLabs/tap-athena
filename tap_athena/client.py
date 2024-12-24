@@ -46,9 +46,8 @@ class AthenaConnector(SQLConnector):
         url = (
             f"awsathena+rest://{aws_access_key_id}:"
             f"{aws_secret_access_key}@athena"
-            f".{aws_region}.amazonaws.com:443/"
+            f".{aws_region}.amazonaws.com:443/{config['schema_name']}"
             f"?s3_staging_dir={s3_staging_dir}"
-            f"&schema={config['schema_name']}"
             f"&work_group={athena_workgroup}"
         )
         if aws_session_token:

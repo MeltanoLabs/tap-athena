@@ -28,7 +28,7 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.9"
 pyathena = ">=3,<4"
-singer-sdk = "~=0.43.1"
+singer-sdk = "~=0.44.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8.0.0"

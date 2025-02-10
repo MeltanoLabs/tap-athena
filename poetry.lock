@@ -1435,13 +1435,13 @@ files = [
 
 [[package]]
 name = "singer-sdk"
-version = "0.44.0"
+version = "0.44.3"
 description = "A framework for building Singer taps"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "singer_sdk-0.44.0-py3-none-any.whl", hash = "sha256:15d896edae6e16c2614e5211f52546a63ea58cd88578e61efc259dfefc032972"},
-    {file = "singer_sdk-0.44.0.tar.gz", hash = "sha256:050ab063188a0d6f6989456d0d3d9c52cb6da706950ec6f8d8ad1a60ecae7a1b"},
+    {file = "singer_sdk-0.44.3-py3-none-any.whl", hash = "sha256:25cdde6552750485aaa0c98f5c5ba6bdd7e4c69e982c7d4c2631c6df3e64b1ae"},
+    {file = "singer_sdk-0.44.3.tar.gz", hash = "sha256:f2d7eacb4a05270613dc7c02cdcef383f3146e859a14dbdb7c207c90466c7701"},
 ]
 
 [package.dependencies]
@@ -1458,7 +1458,7 @@ jsonpath-ng = ">=1.5.3"
 jsonschema = ">=4.16.0"
 packaging = ">=23.1"
 python-dotenv = ">=0.20"
-PyYAML = ">=6.0"
+pyyaml = ">=6.0"
 referencing = ">=0.30.0"
 requests = ">=2.25.1"
 setuptools = "<=70.3.0"
@@ -1466,16 +1466,12 @@ simpleeval = ">=0.9.13,<1.0.1 || >1.0.1"
 simplejson = ">=3.17.6"
 sqlalchemy = ">=1.4,<3.0"
 typing-extensions = ">=4.5.0"
-urllib3 = [
-    {version = "<2", markers = "python_version < \"3.10\""},
-    {version = "*", markers = "python_version >= \"3.10\""},
-]
 
 [package.extras]
 docs = ["furo (>=2024.5.6)", "myst-parser (>=3)", "pytest (>=7.2.1)", "sphinx (>=7)", "sphinx-copybutton (>=0.5.2)", "sphinx-inline-tabs (>=2023.4.21)", "sphinx-notfound-page (>=1.0.0)", "sphinx-reredirects (>=0.1.5)"]
 faker = ["faker (>=22.5)"]
-jwt = ["PyJWT (>=2.4,<3.0)", "cryptography (>=3.4.6)"]
-parquet = ["numpy (>=1.22)", "numpy (>=1.22,<2.1)", "pyarrow (>=13)"]
+jwt = ["cryptography (>=3.4.6)", "pyjwt (>=2.4,<3.0)"]
+parquet = ["numpy (>=1.22)", "pyarrow (>=13)"]
 s3 = ["fs-s3fs (>=1.1.1)", "s3fs (>=2024.9.0)"]
 ssh = ["paramiko (>=3.3.0)"]
 testing = ["pytest (>=7.2.1)"]

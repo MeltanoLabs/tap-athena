@@ -19,6 +19,7 @@ Built with the [Meltano Singer SDK](https://sdk.meltano.com).
 |:---------------------|:--------:|:-------:|:------------|
 | aws_access_key_id    | True     | None    |             |
 | aws_secret_access_key| True     | None    |             |
+| aws_session_token    | False    | None    |             |
 | aws_region           | True     | None    |             |
 | s3_staging_dir       | True     | None    |             |
 | schema_name          | True     | None    |             |

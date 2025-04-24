@@ -32,6 +32,7 @@ class AthenaConnector(SQLConnector):
             f".{config['aws_region']}.amazonaws.com:443/?"
             f"s3_staging_dir={config['s3_staging_dir']}"
             f"schema={config['schema_name']}"
+            f"SessionToken={config['aws_session_token']}"
         )
 
 

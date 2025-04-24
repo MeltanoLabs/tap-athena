@@ -19,6 +19,9 @@ plugins:
     - name: aws_secret_access_key
       kind: string
       sensitive: true
+    - name: aws_session_token
+      kind: string
+      sensitive: true
     - name: aws_region
       kind: string
     - name: s3_staging_dir

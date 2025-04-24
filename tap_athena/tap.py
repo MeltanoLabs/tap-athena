@@ -32,6 +32,14 @@ class TapAthena(SQLTap):
             description="AWS secret access key",
         ),
         th.Property(
+            "aws_session_token",
+            th.StringType,
+            required=False,
+            secret=True,
+            title="AWS Session Token",
+            description="AWS session token",
+        ),
+        th.Property(
             "aws_region",
             th.StringType,
             required=True,

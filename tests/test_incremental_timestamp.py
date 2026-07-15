@@ -1,6 +1,4 @@
-"""
-Offline unit tests for temporal replication-key coercion (no AWS required).
-"""
+"""Offline unit tests for temporal replication-key coercion (no AWS required)."""
 
 from __future__ import annotations
 
@@ -30,14 +28,19 @@ def _patch_super(value):
 def _patch_reflected_type(reflected_type):
     """Stub the reflected replication-key column type."""
     return mock.patch.object(
-        AthenaStream, "_replication_key_sql_type", return_value=reflected_type
+        AthenaStream,
+        "_replication_key_sql_type",
+        return_value=reflected_type,
     )
 
 
 def test_timestamp_column_coerced_to_datetime():
     stream = _stream()
-    with _patch_super("2026-06-09T17:39:41.045000+00:00"), _patch_reflected_type(
-        sa.types.TIMESTAMP()
+    with (
+        _patch_super("2026-06-09T17:39:41.045000+00:00"),
+        _patch_reflected_type(
+            sa.types.TIMESTAMP(),
+        ),
     ):
         result = stream.get_starting_replication_key_value(None)
     assert result == datetime.datetime(2026, 6, 9, 17, 39, 41, 45000)
@@ -47,8 +50,11 @@ def test_timestamp_column_coerced_to_datetime():
 def test_timestamp_column_with_z_suffix_coerced():
     """A trailing 'Z' bookmark must coerce on all supported Pythons (incl. 3.10)."""
     stream = _stream()
-    with _patch_super("2026-06-09T17:39:41.045000Z"), _patch_reflected_type(
-        sa.types.TIMESTAMP()
+    with (
+        _patch_super("2026-06-09T17:39:41.045000Z"),
+        _patch_reflected_type(
+            sa.types.TIMESTAMP(),
+        ),
     ):
         result = stream.get_starting_replication_key_value(None)
     assert result == datetime.datetime(2026, 6, 9, 17, 39, 41, 45000)
@@ -57,8 +63,11 @@ def test_timestamp_column_with_z_suffix_coerced():
 
 def test_date_column_coerced_to_date():
     stream = _stream()
-    with _patch_super("2026-06-09T00:00:00+00:00"), _patch_reflected_type(
-        sa.types.DATE()
+    with (
+        _patch_super("2026-06-09T00:00:00+00:00"),
+        _patch_reflected_type(
+            sa.types.DATE(),
+        ),
     ):
         result = stream.get_starting_replication_key_value(None)
     assert result == datetime.date(2026, 6, 9)
@@ -66,8 +75,11 @@ def test_date_column_coerced_to_date():
 
 def test_varchar_column_left_as_string():
     stream = _stream()
-    with _patch_super("2026-06-09T17:39:41.045000+00:00"), _patch_reflected_type(
-        sa.types.VARCHAR()
+    with (
+        _patch_super("2026-06-09T17:39:41.045000+00:00"),
+        _patch_reflected_type(
+            sa.types.VARCHAR(),
+        ),
     ):
         result = stream.get_starting_replication_key_value(None)
     assert result == "2026-06-09T17:39:41.045000+00:00"
@@ -99,9 +111,18 @@ def test_reflection_exception_is_swallowed():
     stream = _stream()
     connector = mock.Mock()
     connector.get_table_columns.side_effect = RuntimeError("glue down")
-    with mock.patch.object(
-        AthenaStream, "connector", new_callable=mock.PropertyMock, return_value=connector
-    ), mock.patch.object(
-        AthenaStream, "fully_qualified_name", new_callable=mock.PropertyMock, return_value="db.t"
+    with (
+        mock.patch.object(
+            AthenaStream,
+            "connector",
+            new_callable=mock.PropertyMock,
+            return_value=connector,
+        ),
+        mock.patch.object(
+            AthenaStream,
+            "fully_qualified_name",
+            new_callable=mock.PropertyMock,
+            return_value="db.t",
+        ),
     ):
         assert stream._replication_key_sql_type() is None

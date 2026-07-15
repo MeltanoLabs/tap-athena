@@ -1,12 +1,12 @@
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = [
-  "poetry-core>=1.9,<2",
+  "poetry-core>=2,<3",
 ]
 
 [tool.poetry]
 name = "tap-athena"
-version = "1.1.0"
+version = "1.4.0"
 description = "`tap-athena` is a Singer tap for Athena, built with the Meltano Singer SDK."
 readme = "README.md"
 authors = [
@@ -26,7 +26,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.9"
+python = ">=3.10"
 pyathena = ">=3,<4"
 singer-sdk = "~=0.45.10"
 
@@ -45,7 +45,7 @@ s3 = [
 tap-athena = 'tap_athena.tap:TapAthena.cli'
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py310"
 
 line-length = 88
 lint.select = [
@@ -121,13 +121,12 @@ lint.pydocstyle.convention = "google"
 [tool.pytest.ini_options]
 filterwarnings = [
   "error",
-  "ignore::sqlalchemy.exc.SADeprecationWarning",
-  "ignore:datetime.datetime.utcnow:DeprecationWarning:botocore.auth", # https://github.com/boto/boto3/issues/3889
+  "ignore::sqlalchemy.exc.SADeprecationWarning"
 ]
 
 [tool.mypy]
 plugins = [
   "sqlalchemy.ext.mypy.plugin",
 ]
-python_version = "3.9"
+python_version = "3.10"
 warn_unused_configs = true

@@ -26,7 +26,7 @@ packages = [
 ]
 dependencies.python = ">=3.10"
 dependencies.pyathena = ">=3,<4"
-dependencies.singer-sdk = "~=0.45.10"
+dependencies.singer-sdk = "~=0.54.5"
 group.dev.dependencies.coverage = ">=7.3.2"
 group.dev.dependencies.moto = ">=5.0.0"
 group.dev.dependencies.pytest = ">=8.0.0"

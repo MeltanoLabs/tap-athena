@@ -6,7 +6,7 @@ import datetime
 import typing as t
 
 import sqlalchemy as sa
-from singer_sdk import SQLConnector, SQLStream
+from singer_sdk.sql import SQLConnector, SQLStream
 
 if t.TYPE_CHECKING:
     from singer_sdk.helpers.types import Context

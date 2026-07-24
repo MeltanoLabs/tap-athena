@@ -1,14 +1,14 @@
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = [
-  "poetry-core>=1.9,<2",
+  "poetry-core>=2,<3",
 ]
 
 [tool.poetry]
 name = "tap-athena"
-version = "1.1.0"
+version = "1.4.0"
 description = "`tap-athena` is a Singer tap for Athena, built with the Meltano Singer SDK."
-readme = "README.md"
+license = "Apache-2.0"
 authors = [
   "AJ Steers <aaronsteers@gmail.com>",
   "Pat Nadolny <pat@meltano.com>",
@@ -16,37 +16,28 @@ authors = [
 maintainers = [
   "Metano Team and Contributors <hello@meltano.com>",
 ]
+readme = "README.md"
 keywords = [
-  "ELT",
   "Athena",
+  "ELT",
 ]
-license = "Apache-2.0"
 packages = [
   { include = "tap_athena" },
 ]
-
-[tool.poetry.dependencies]
-python = ">=3.9"
-pyathena = ">=3,<4"
-singer-sdk = "~=0.45.10"
-
-[tool.poetry.group.dev.dependencies]
-pytest = ">=8.0.0"
-moto = ">=5.0.0"
-coverage = ">=7.3.2"
-
-[tool.poetry.extras]
-s3 = [
+dependencies.python = ">=3.10"
+dependencies.pyathena = ">=3,<4"
+dependencies.singer-sdk = "~=0.54.5"
+group.dev.dependencies.coverage = ">=7.3.2"
+group.dev.dependencies.moto = ">=5.0.0"
+group.dev.dependencies.pytest = ">=8.0.0"
+extras.s3 = [
   "fs-s3fs",
 ]
-
-[tool.poetry.scripts]
 # CLI declaration
-tap-athena = 'tap_athena.tap:TapAthena.cli'
+scripts.tap-athena = "tap_athena.tap:TapAthena.cli"
 
 [tool.ruff]
-target-version = "py39"
-
+target-version = "py310"
 line-length = 88
 lint.select = [
   "A",
@@ -112,22 +103,18 @@ lint.unfixable = [
 lint.flake8-import-conventions.banned-from = [
   "typing",
 ]
-lint.flake8-import-conventions.extend-aliases."typing" = "t"
+lint.flake8-import-conventions.extend-aliases.typing = "t"
 lint.isort.required-imports = [
   "from __future__ import annotations",
 ]
 lint.pydocstyle.convention = "google"
 
-[tool.pytest.ini_options]
-filterwarnings = [
-  "error",
-  "ignore::sqlalchemy.exc.SADeprecationWarning",
-  "ignore:datetime.datetime.utcnow:DeprecationWarning:botocore.auth", # https://github.com/boto/boto3/issues/3889
-]
-
 [tool.mypy]
+python_version = "3.10"
 plugins = [
   "sqlalchemy.ext.mypy.plugin",
 ]
-python_version = "3.9"
 warn_unused_configs = true
+
+[tool.pytest]
+ini_options.filterwarnings = [ "error", "ignore::sqlalchemy.exc.SADeprecationWarning" ]

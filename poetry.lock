@@ -1009,14 +1009,14 @@ testing = ["coverage", "pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pyathena"
-version = "3.35.2"
+version = "3.35.3"
 description = "Python DB API 2.0 (PEP 249) client for Amazon Athena"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "pyathena-3.35.2-py3-none-any.whl", hash = "sha256:ea55629b69ffc0f8bb4f42fd45b43919194e9f3759be1cf39f2d6e908e53914c"},
-    {file = "pyathena-3.35.2.tar.gz", hash = "sha256:77e6c2105f17b418009cd31eeb7e32102ed744bfa2a1458688f2508f96f11c97"},
+    {file = "pyathena-3.35.3-py3-none-any.whl", hash = "sha256:a67094a9826c67dcfe84646d2e90f5c231a0093444e491d676f9c6487370d8a7"},
+    {file = "pyathena-3.35.3.tar.gz", hash = "sha256:13c9ee6d4b5822af160052a812dcd37eb86bf902898fe1060c553c357633e944"},
 ]
 
 [package.dependencies]
